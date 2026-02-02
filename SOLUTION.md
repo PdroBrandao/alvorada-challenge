@@ -11,16 +11,38 @@ To address this, the solution emphasizes **prompt iteration, explicit constraint
 
 ## 1. Prompt Changes
 
-### Prompt v1 — Baseline (Provided)
+> All prompt versions are available in the `prompts/` directory: `base_prompt.md`, `prompt_v1.md`, `prompt_v2.md`, `prompt_v3.md`.
 
-The initial prompt focused on high-level tasks (totals, categories, recommendations) but left several aspects underspecified.
+### Base Prompt — Provided by the Challenge
+
+The original prompt provided was intentionally vague and open-ended:
+
+```
+You are a helpful financial assistant. Look at this bank statement and analyze the user's spending.
+
+Tell me:
+- Where is the money going?
+- What are some trends?
+- Any tips for saving money?
+```
+
+This prompt produced highly inconsistent outputs: no structured JSON, no numeric precision, and subjective interpretations of the data.
+
+---
+
+### Prompt v1 — Structured Output with Explicit Tasks
+
+The first iteration introduced structure and explicit requirements:
+- Defined a strict JSON output schema
+- Specified concrete tasks (totals, categories, recommendations)
+- Added basic rules to reduce hallucination
 
 Observed issues:
 - Categories were returned as abstract scores or weights instead of monetary values.
 - Numerical outputs were inconsistent across runs.
-- Ambiguity around what constituted an “expense” led to hallucinated conventions.
+- Ambiguity around what constituted an "expense" led to hallucinated conventions.
 
-This version demonstrated that a generic prompt is insufficient for deterministic financial analysis.
+This version demonstrated that structure alone is insufficient without semantic constraints.
 
 ---
 
