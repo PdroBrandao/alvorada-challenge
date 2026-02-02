@@ -1,4 +1,7 @@
 node_modules/
 dist/
 .env
+bank_statement.csv
+questions.md
+Technical-test.md
 
